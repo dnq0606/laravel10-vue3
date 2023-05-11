@@ -1,14 +1,12 @@
 <template>
-    <div>Index page</div>
-    <div>
-      <p>The message is {{message}}</p>
-    </div>
+  <div>Index page</div>
+  <div>
+    <p>The message is {{ message }}</p>
+  </div>
 </template>
 
 <script setup>
-
 defineProps({
-  message: String
+  message: String,
 })
-
 </script>

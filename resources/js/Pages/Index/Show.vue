@@ -1,9 +1,5 @@
 <template>
-    <div>
-      Show page
-    </div>
+  <div>Show page</div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
