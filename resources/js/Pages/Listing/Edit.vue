@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="create">
+    <form @submit.prevent="update">
       <div class="mb-5px">
         <label for="beds">beds</label>
         <input id="beds" v-model.number="form.beds" type="text" />
@@ -53,20 +53,22 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-
+const props = defineProps({
+  listing: Object,
+})
 const form = useForm({
-  beds: 0,
-  baths: 0,
-  area: 0,
-  city: null,
-  code: null,
-  street: null,
-  street_nr: null,
-  price: 0,
+  beds: props.listing.beds,
+  baths: props.listing.baths,
+  area: props.listing.area,
+  city: props.listing.city,
+  code: props.listing.code,
+  street: props.listing.street,
+  street_nr: props.listing.street_nr,
+  price: props.listing.price,
 })
 
 
-const create = () => form.post('/listing', form)
+const update = () => form.put(`/listing/${props.listing.id}`, form)
 
 </script>
 
