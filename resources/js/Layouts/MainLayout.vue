@@ -1,31 +1,26 @@
 <template>
-  <div style="margin-bottom: 40px;">
-    <Link href="/listing">Listings</Link>&nbsp;
-    <Link href="/listing/create">Add new listing</Link>
-  </div>
-
   <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
     <div class="container mx-auto">
       <nav class="flex justify-between items-center p-4">
         <div class="text-lg font-medium">
           <Link href="/listing">Listings</Link>
         </div>
-        <div class="text-lg font-medium text-indigo-800">
+        <div class="text-lg text-indigo-600 dark:text-indigo-300 font-bold text-center">
           <Link href="/listing">LazaZillow</Link>
         </div>
         <div class="text-lg font-medium">
-          <Link href="/listing/create">Add new listing</Link>
+          <Link href="/listing/create" class="bg-indigo-600 hover:bg-indigo-500 rounded-md text-white p-2">+ Add new listing</Link>
         </div>
       </nav>
     </div>
   </header>
 
-  <content>
-    <div v-if="flashSuccess" class="success">
+  <main class="container mx-auto p-4">
+    <div v-if="flashSuccess" class="mb-4 border rounded-md shadow-sm border-green-200 dark:border-gray-800 bg-green-50 dark:bg-green-900 p-2">
       {{ flashSuccess }}
     </div>
-  </content>
-  <slot />
+    <slot />
+  </main>
 </template>
 
 <script setup>
