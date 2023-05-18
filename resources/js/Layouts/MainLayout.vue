@@ -6,7 +6,7 @@
           <Link href="/listing">Listings</Link>
         </div>
         <div class="text-lg text-indigo-600 dark:text-indigo-300 font-bold text-center">
-          <Link href="/listing">LazaZillow</Link>
+          <Link href="/">LazaZillow</Link>
         </div>
         <div class="text-lg font-medium">
           <Link href="/listing/create" class="bg-indigo-600 hover:bg-indigo-500 rounded-md text-white p-2">+ Add new listing</Link>
