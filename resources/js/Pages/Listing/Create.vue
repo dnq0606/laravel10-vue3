@@ -69,7 +69,7 @@ const form = useForm({
   price: 0,
 })
 
-
+console.log(form)
 const create = () => form.post('/listing', form)
 
 </script>

@@ -33,18 +33,50 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Listing::create([
-          $request->validate([
-            'beds' => 'required|integer|min:0|max:20',
-            'baths' => 'required|integer|min:0|max:20',
-            'area' => 'required|integer|min:15|max:1500',
-            'city' => 'required',
-            'code' => 'required',
-            'street' => 'required',
-            'street_nr' => 'required|integer|min:1|max:1000',
-            'price' => 'required|integer|min:1|max:2000000',
-          ])
-        ]);
+      $message = [
+        'beds.required' => 'Trường beds là bắt buộc.',
+        'beds.integer' => 'Trường beds phải là một số từ 0 đến 20.',
+        'beds.min' => 'Trường beds phải là một số từ 0 đến 20.',
+        'beds.max' => 'Trường beds phải là một số từ 0 đến 20.',
+
+        'baths.required' => 'Trường baths là bắt buộc.',
+        'baths.integer' => 'Trường baths phải là một số từ 0 đến 20.',
+        'baths.min' => 'Trường baths phải là một số từ 0 đến 20.',
+        'baths.max' => 'Trường baths phải là một số từ 0 đến 20.',
+
+        'area.required' => 'Trường area là bắt buộc.',
+        'area.integer' => 'Trường area phải là một số từ 15 đến 1500.',
+        'area.min' => 'Trường area phải là một số từ 15 đến 1500.',
+        'area.max' => 'Trường area phải là một số từ 15 đến 1500.',
+
+        'city.required' => 'Trường city là bắt buộc.',
+        'code.required' => 'Trường code là bắt buộc.',
+        'street.required' => 'Trường city là bắt buộc.',
+
+        'street_nr.required' => 'Trường street_nr là bắt buộc.',
+        'street_nr.integer' => 'Trường street_nr phải là một số từ 1 đến 1000.',
+        'street_nr.min' => 'Trường street_nr phải là một số từ 1 đến 1000.',
+        'street_nr.max' => 'Trường street_nr phải là một số từ 1 đến 1000.',
+
+        'price.required' => 'Trường price là bắt buộc.',
+        'price.integer' => 'Trường price phải là một số từ 1 đến 2000000.',
+        'price.min' => 'Trường price phải là một số từ 1 đến 2000000.',
+        'price.max' => 'Trường price phải là một số từ 1 đến 2000000.',
+
+      ];
+
+      Listing::create([
+        $request->validate([
+          'beds' => 'required|integer|min:0|max:20',
+          'baths' => 'required|integer|min:0|max:20',
+          'area' => 'required|integer|min:15|max:1500',
+          'city' => 'required',
+          'code' => 'required',
+          'street' => 'required',
+          'street_nr' => 'required|integer|min:1|max:1000',
+          'price' => 'required|integer|min:1|max:2000000',
+        ], $message)
+      ]);
 
         return redirect()->route('listing.index')->with('success', 'Liting was created!');
     }
