@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import Listing from './Index/Components/Listing.vue'
+import Listing from '@/Pages/Listing/Index/Components/Listing.vue'
 
 defineProps({
   listings: Array,

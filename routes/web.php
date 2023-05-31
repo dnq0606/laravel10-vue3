@@ -22,6 +22,6 @@ Route::get('/show', [IndexController::class, 'show']);
 Route::resource('listing', ListingController::class);
 
 
-Route::get('login/create', [AuthController::class, 'create'])->name('login');
+Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login/store', [AuthController::class, 'store'])->name('login.store');
 Route::delete('login/destroy', [AuthController::class, 'destroy'])->name('logout');
