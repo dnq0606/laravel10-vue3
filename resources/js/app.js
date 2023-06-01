@@ -6,9 +6,9 @@ import NProgress from 'nprogress'
 import { router } from '@inertiajs/vue3'
 
 createInertiaApp({
-  resolve: name => {
+  resolve: async (name) => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-    const page = pages[`./Pages/${name}.vue`]
+    const page = await pages[`./Pages/${name}.vue`]
     page.default.layout = page.default.layout || MainLayout
 
     return page

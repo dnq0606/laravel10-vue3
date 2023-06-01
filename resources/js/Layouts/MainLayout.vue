@@ -8,8 +8,15 @@
         <div class="text-lg text-indigo-600 dark:text-indigo-300 font-bold text-center">
           <Link href="/">LazaZillow</Link>
         </div>
-        <div class="text-lg font-medium">
-          <Link href="/listing/create" class="btn-primary">+ Add new listing</Link>
+        <div v-if="user" class="flex items-center gap-4">
+          <Link class="text-sm text-gray-500" href="/listing">{{ user.name }}</Link>
+          <Link href="/listing/create" class="btn-primary">+ New Listing</Link>
+          <div>
+            <Link href="/login/destroy" method="delete" as="button">Logout</Link>
+          </div>
+        </div>
+        <div v-else class="flex items-center gap-2">
+          <Link href="/login">Sign-In</Link>
         </div>
       </nav>
     </div>
@@ -24,10 +31,16 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
-import { usePage } from '@inertiajs/vue3'
+
 import { computed } from 'vue'
+import { Link, usePage } from '@inertiajs/vue3'
 
 const page = usePage()
-const flashSuccess = computed(() => page.props.flash.success)
+const flashSuccess = computed(
+  () => page.props.flash.success,
+)
+const user = computed(
+  () => page.props.user,
+)
+
 </script>
